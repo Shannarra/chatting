@@ -1,0 +1,5 @@
+<div id="messages" class='w-full'>
+	<% chat.messages.each do |msg| %>
+    <%= render msg, message: msg %>
+	<% end %>
+</div>

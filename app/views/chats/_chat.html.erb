@@ -1,0 +1,14 @@
+<%= turbo_stream_from chat %>
+<%= turbo_stream_from 'chat_updates' %>
+
+<div id="<%= dom_id chat %>">
+  <p>
+		<strong>Name:</strong>
+    <%= chat.name %>
+  </p>
+
+	<p>
+    <strong>Messages:</strong>
+    <%= render 'messages/new', chat: chat %>
+  </p>
+</div>

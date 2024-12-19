@@ -1,0 +1,7 @@
+<div>
+	<h1>Write a new message</h1>
+	<%= form_with model: [chat, Message.new] do |form| %>
+	  <%= form.rich_text_area :content %>
+	  <%= form.submit 'Send'%>
+	<% end %>
+</div>

@@ -1,0 +1,7 @@
+<%= turbo_stream_from message %>
+
+<div id="<%= dom_id message %>" >
+	<hr/>
+	<%= message&.user&.name %> said: <%= message.content.html_safe %>(<i><%= time_tag message.updated_at, 'data-local': 'time-ago' %></i>)
+	<br/>
+</div>

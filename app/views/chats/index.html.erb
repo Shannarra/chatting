@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Chats" %>
+
+<h1>Chats</h1>
+<div class="">
+	<div id="chats" class="grid grid-cols-1 sm:grid-cols-3 grid-flow-row gap-5 justify-center sm:justify-between">
+		<% @chats.each do |chat| %>
+		  <div class="text-center sm:text-left mb-5 sm:mx-5 shadow sm:mr-5 hover:shadow-2xl hover:cursor-pointer">
+		  <%= link_to chat do %>
+		  	<div>
+		  		<%= render 'preview', chat: chat %>
+		  	</div>
+		  <% end %>
+		  </div>  
+		<% end %>
+	</div>
+</div>
+
+<%= link_to "New chat", new_chat_path %>
