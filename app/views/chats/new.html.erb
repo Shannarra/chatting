@@ -1,11 +1,12 @@
 <% content_for :title, "New chat" %>
 
-<h1>New chat</h1>
+<div class="mx-auto md:w-2/3 w-full">
+	<h1 class='text-bold text-4xl'>New chat</h1>
 
-<%= render "form", chat: @chat %>
+	<%= render "form", chat: @chat %>
+	<br>
 
-<br>
-
-<div>
-  <%= link_to "Back to chats", chats_path %>
+	<div>
+		<%= link_to "Back to chats", chats_path %>
+	</div>
 </div>

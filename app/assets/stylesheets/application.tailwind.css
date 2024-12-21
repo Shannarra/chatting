@@ -6,12 +6,21 @@ a {
 	@apply no-underline hover:underline;
 }
 
-/*
 
 @layer components {
   .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+			@apply rounded-xl py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer;
   }
-}
 
-*/
+	.btn-danger {
+			@apply rounded-xl py-3 px-5 bg-red-600 text-white inline-block font-medium cursor-pointer;
+  }
+
+	.btn-success {
+			@apply rounded-xl py-3 px-5 bg-green-600 text-white inline-block font-medium cursor-pointer;
+  }
+
+	.form-field {
+			@apply block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full;
+	}
+}

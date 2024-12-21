@@ -1,5 +1,5 @@
 <div id="messages" class='w-full'>
-	<% chat.messages.each do |msg| %>
-    <%= render msg, message: msg %>
+	<% chat.messages.each_with_index do |msg, idx| %>
+    <%= render msg, message: msg, same_user: msg.user == chat.messages[idx - 1]&.user %>
 	<% end %>
 </div>

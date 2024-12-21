@@ -1,7 +1,16 @@
 <%= turbo_stream_from message %>
+<%= turbo_stream_from 'message_updates' %>
 
-<div id="<%= dom_id message %>" >
-	<hr/>
-	<%= message&.user&.name %> said: <%= message.content.html_safe %>(<i><%= time_tag message.updated_at, 'data-local': 'time-ago' %></i>)
-	<br/>
+<div id="<%= dom_id message %>">
+	<% is_owned = Current.user == message.user %>
+	<% justify, color = justify_and_color_from(message, is_owned) %>
+	<% top_margin = margin_by_message(message, same_user) rescue false %>
+	<div class="w-full">
+		<div class="flex <%= justify %>">
+			<div class='flex-col <%= color %> px-5 max-w-96 <%= top_margin %>'>
+				<b class='text-gray'><%= message&.user&.name %> (<i><%= time_tag message.updated_at, 'data-local': 'time-ago' %></i>)</b>
+				<%= message.content %>
+			</div>
+		</div>
+	</div>
 </div>

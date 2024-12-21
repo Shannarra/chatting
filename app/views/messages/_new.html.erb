@@ -1,7 +1,7 @@
-<div>
-	<h1>Write a new message</h1>
+<div class="mx-auto w-full">
+	<h1 class="text-center text-2xl">Write a new message</h1>
 	<%= form_with model: [chat, Message.new] do |form| %>
 	  <%= form.rich_text_area :content %>
-	  <%= form.submit 'Send'%>
+	  <%= form.submit 'Send!', class: 'btn-success w-full mt-3' %>
 	<% end %>
 </div>
