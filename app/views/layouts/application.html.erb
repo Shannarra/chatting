@@ -31,7 +31,7 @@
 			<p style="color: green"><%= notice %></p>
 			<p style="color: red"><%= alert %></p>
 
-			<%= button_to 'Sign out', session_path, method: :delete, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full' if authenticated? %>
+			<%= button_to 'Sign out', session_path, method: :delete, class: 'btn-danger' if authenticated? %>
       <%= yield %>
     </main>
   </body>
