@@ -8,11 +8,13 @@ class ChatsController < ApplicationController
 
   # GET /chats/1 or /chats/1.json
   def show
+    authorize @chat
   end
 
   # GET /chats/new
   def new
     @chat = Chat.new
+    authorize @chat
   end
 
   # GET /chats/1/edit
@@ -22,6 +24,10 @@ class ChatsController < ApplicationController
   # POST /chats or /chats.json
   def create
     @chat = Chat.new(chat_params)
+    # The user that creates the chat should be a part of it by definition
+    @chat.users = [ current_user ]
+
+    authorize @chat
 
     respond_to do |format|
       if @chat.save
@@ -36,6 +42,8 @@ class ChatsController < ApplicationController
 
   # PATCH/PUT /chats/1 or /chats/1.json
   def update
+    authorize @chat
+
     respond_to do |format|
       if @chat.update(chat_params)
         format.html { redirect_to @chat, notice: "Chat was successfully updated." }
@@ -49,6 +57,7 @@ class ChatsController < ApplicationController
 
   # DELETE /chats/1 or /chats/1.json
   def destroy
+    authorize @chat
     @chat.destroy!
 
     respond_to do |format|
