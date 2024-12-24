@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
-  resource :session
+  resources :users do
+    member do
+      get :show
+    end
+  end
+
+  resource :session do
+    collection do
+      get :register
+      post :sign_up
+    end
+  end
   resources :passwords, param: :token
+
   resources :chats do
     resources :messages
   end

@@ -2,10 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-a {
-	@apply no-underline hover:underline;
+h1 {
+	@apply text-4xl font-bold;
 }
-
 
 @layer components {
   .btn-primary {
