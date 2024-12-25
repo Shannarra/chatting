@@ -1,14 +1,15 @@
 <%= turbo_stream_from @chat %>
+<div class="m-2 bg-white">
+	<%= render @chat %>
 
-<%= render @chat %>
+	<div>
+		<%= link_to "Edit this chat", edit_chat_path(@chat) %> |
+		<%= link_to "Back to chats", chats_path %>
 
-<div>
-  <%= link_to "Edit this chat", edit_chat_path(@chat) %> |
-  <%= link_to "Back to chats", chats_path %>
+		<%= button_to "Destroy this chat", @chat, method: :delete %>
+	</div>
 
-  <%= button_to "Destroy this chat", @chat, method: :delete %>
-</div>
-
-<div height="500px">
-<%= render 'messages/messages', chat: @chat %>
+	<div height="500px">
+		<%= render 'messages/messages', chat: @chat %>
+	</div>
 </div>

@@ -1,6 +1,6 @@
 class ChatPolicy < ApplicationPolicy
   def show?
-    @user.chats.include? @record
+    @user.in_chat? @record
   end
 
   # allow users to create new chats for now

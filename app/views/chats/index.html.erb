@@ -1,6 +1,9 @@
 <% content_for :title, "Chats" %>
 
-<h1>Chats</h1>
+<h1 class="text-center py-5">
+	Chats
+	<%= link_to "New chat", new_chat_path, class: 'btn-success' %>
+</h1>
 <div class="">
 	<div id="chats" class="grid grid-cols-1 sm:grid-cols-3 grid-flow-row gap-5 justify-center sm:justify-between">
 		<% @chats.each do |chat| %>
@@ -15,4 +18,3 @@
 	</div>
 </div>
 
-<%= link_to "New chat", new_chat_path %>

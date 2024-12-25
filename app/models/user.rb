@@ -6,4 +6,20 @@ class User < ApplicationRecord
   has_many :messages, through: :chats
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
+
+  def in_chat?(chat)
+    self.chats.include? chat
+  end
+
+  def enroll_chat!(chat)
+    return if in_chat? chat
+
+    self.chats.push chat
+  end
+
+  def exit_chat!(chat)
+    return unless in_chat? chat
+
+    self.chats.destroy(chat)
+  end
 end

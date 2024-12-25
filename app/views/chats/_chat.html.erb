@@ -2,10 +2,17 @@
 <%= turbo_stream_from 'chat_updates' %>
 
 <div id="<%= dom_id chat %>">
-  <p>
-		<strong>Chat name:</strong>
-    <%= chat.name %>
-  </p>
+  <h1>
+		<p class="text-center">
+			<%= chat.name %>
+		</p>
+	</h1>
+
+	<div class="text-center">
+		<% chat.users.each do |user| %>
+		  <p><%= user.name %></p>
+		<% end %>
+	</div>
 
 	<p>
     <strong>Messages:</strong>
