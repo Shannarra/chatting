@@ -7,6 +7,11 @@ class User < ApplicationRecord
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
 
+  enum :profile_type, {
+         user: 0,
+         admin: 3
+       }
+
   def in_chat?(chat)
     self.chats.include? chat
   end

@@ -15,6 +15,14 @@ Rails.application.routes.draw do
 
   resources :chats do
     resources :messages
+
+    member do
+      post :enroll
+    end
+
+    collection do
+      get :public
+    end
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

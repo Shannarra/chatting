@@ -8,18 +8,19 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-User.create!(name: 'Admin Adminson', bio: 'Just an admin', email_address: 'admin@mail.com', password: '123456')
+User.create!(name: 'Admin Adminson', bio: 'Just an admin', profile_type: :admin, email_address: 'admin@mail.com', password: '123456')
 
 30.times do
   User.create!(
     name: Faker::Name.name,
     bio: Faker::ChuckNorris.fact,
+    profile_type: :user,
     email_address: Faker::Internet.email,
     password: '123456'
   )
 end
 
-10.times do
+30.times do
   users_count = rand(2..15)
   Chat.create!(
     name: Faker::Books::CultureSeries.book,

@@ -1,5 +1,5 @@
 class ChatsController < ApplicationController
-  before_action :set_chat, only: %i[ show edit update destroy ]
+  before_action :set_chat, only: %i[ show edit update destroy enroll ]
 
   # GET /chats or /chats.json
   def index
@@ -9,6 +9,17 @@ class ChatsController < ApplicationController
   # GET /chats/1 or /chats/1.json
   def show
     authorize @chat
+  end
+
+  def enroll
+    current_user.enroll_chat!(@chat)
+    redirect_to chats_url
+  end
+
+  def public
+    @public_chats = Chat.public_chat - current_user.chats
+
+    render "publics"
   end
 
   # GET /chats/new

@@ -9,7 +9,7 @@ class ChatPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    @user.admin?
   end
 
   def edit?

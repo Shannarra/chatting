@@ -1,4 +1,4 @@
-<div class="mx-auto md:w-1/3 w-full">
+<div class="mx-auto md:w-1/3 w-full my-3">
 	<h1 class='text-center'>Register to chatting</h1>
 
   <%= form_with url: sign_up_session_url, class: "contents" do |form| %>
@@ -18,6 +18,11 @@
       <div class="inline">
         <%= form.submit "Register!", class: "btn-success" %>
       </div>
+
+			Or Alternatively
+			<div class="inline">
+				<%= link_to "Log in", new_session_url, class: "btn-success" %>
+			</div>
     </div>
   <% end %>
 </div>
